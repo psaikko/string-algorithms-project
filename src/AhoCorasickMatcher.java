@@ -10,7 +10,7 @@ public class AhoCorasickMatcher {
     public AhoCorasickMatcher(String[] patterns, char[] alphabet) {
         this.alphabet = alphabet;
         this.patternTrieRoot = constructAutomaton(patterns);
-        printTrie(patternTrieRoot);
+        //printTrie(patternTrieRoot);
     }
 
     private void printTrie(Node root) {
@@ -34,10 +34,19 @@ public class AhoCorasickMatcher {
         List<Occurrence> occurrences = new LinkedList();
         Node v = patternTrieRoot;
         for (int j = 0; j < text.length(); j++) {
-            while (!v.children.containsKey(text.charAt(j))) {
+            Character cj = Character.valueOf(text.charAt(j));
+            while (!v.children.containsKey(cj)) {
+
+                if (v.fail == null) { // for debugging purposes, v.fail == null implies NPE imminent
+                    System.out.println(cj + " " + (int)cj.charValue());
+                    for (Character c : v.children.keySet())
+                        System.out.print(c + " ");
+                    System.out.println();
+                }
+
                 v = v.fail;
             }
-            v = v.children.get(text.charAt(j));
+            v = v.children.get(cj);
             for (Integer i : v.patterns) {
                 occurrences.add(new Occurrence(i, j));
             }
@@ -51,13 +60,13 @@ public class AhoCorasickMatcher {
             Node v = root;
             String p = patterns[i];
             int j = 0;
-            while (v.children.containsKey(p.charAt(j))) {
-                v = v.children.get(p.charAt(j));
+            while (j < p.length() && v.children.containsKey(Character.valueOf(p.charAt(j)))) {
+                v = v.children.get(Character.valueOf(p.charAt(j)));
                 j++;
             }
             while (j < p.length()) {
                 Node u = new Node();
-                v.children.put(p.charAt(j), u);
+                v.children.put(Character.valueOf(p.charAt(j)), u);
                 v = u;
                 j++;
             }
@@ -70,7 +79,7 @@ public class AhoCorasickMatcher {
     private void computeFail(Node root) {
         Node fallback = new Node();
         for (int i = 0; i < alphabet.length; i++) {
-            fallback.children.put(alphabet[i], root);
+            fallback.children.put(Character.valueOf(alphabet[i]), root);
         }
         root.fail = fallback;
         Deque<Node> queue = new LinkedList();
