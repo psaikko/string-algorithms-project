@@ -5,9 +5,6 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        //String text = "hishers";
-        //String[] patterns = {"he","his","she","hers"};
-
         char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
         String text = StringTools.createText(100000000, alphabet);

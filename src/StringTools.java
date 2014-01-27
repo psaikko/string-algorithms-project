@@ -5,10 +5,14 @@ import java.util.Random;
  */
 public class StringTools {
     private static Random rand = new Random(1337);
+
     public static String createText(int length, char[] alphabet) {
         StringBuilder builder = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
-            builder.append(Character.valueOf(alphabet[rand.nextInt(alphabet.length)]));
+            Character c = Character.valueOf(alphabet[rand.nextInt(alphabet.length)]);
+            builder.append(c);
+            if (((int)c.charValue()) > 255)
+                System.out.println("derp: "+c);
         }
         return builder.toString();
     }

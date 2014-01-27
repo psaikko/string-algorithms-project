@@ -36,14 +36,6 @@ public class AhoCorasickMatcher {
         for (int j = 0; j < text.length(); j++) {
             Character cj = Character.valueOf(text.charAt(j));
             while (!v.children.containsKey(cj)) {
-
-                if (v.fail == null) { // for debugging purposes, v.fail == null implies NPE imminent
-                    System.out.println(cj + " " + (int)cj.charValue());
-                    for (Character c : v.children.keySet())
-                        System.out.print(c + " ");
-                    System.out.println();
-                }
-
                 v = v.fail;
             }
             v = v.children.get(cj);
