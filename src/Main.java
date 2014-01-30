@@ -12,8 +12,8 @@ public class Main {
     public static void randomTest() {
         Long startTime, midTime, endTime;
         char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-        char[] text = StringTools.createText(500000000, alphabet);
-        char[][] patterns = StringTools.getRandomSubstrings(16, 32, text);
+        char[] text = StringTools.createText(5000000, alphabet);
+        char[][] patterns = StringTools.getRandomSubstrings(8, 8, text);
         MultipleStringMatcher matcher;
         List<Occurrence> occurrences;
 

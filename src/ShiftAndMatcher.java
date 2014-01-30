@@ -20,7 +20,7 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
         }
 
         this.wc = (m + w - 1)/w; // ceil(m / w)
-        this.B = new long[255][wc];
+        this.B = new long[256][wc];
         this.pBegin = new long[wc];
         this.pEnd = new long[wc];
         this.alphabet = alphabet;
@@ -43,29 +43,6 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
             }
         }
         //debugPreprocessing();
-    }
-
-    private void debugPreprocessing() {
-        System.out.print("pBegin "+toBitString(pBegin)+"\n");
-        System.out.print("pEnd   "+toBitString(pEnd)+"\n");
-
-        for (char c : alphabet) {
-            System.out.print(c);
-            System.out.print(" "+toBitString(B[c]));
-            System.out.println();
-        }
-        System.out.println();
-    }
-
-    private String toBitString(long[] ls) {
-        StringBuilder sb = new StringBuilder();
-        for (int j = 0; j < ls.length; j++) {
-            for (int i = 0; i < w; i++) {
-                sb.append(((ls[j] & (1L << i)) != 0) ? "1" : "0");
-            }
-            sb.append(" ");
-        }
-        return sb.toString();
     }
 
     public List<Occurrence> findOccurrences(char[] text) {
@@ -93,5 +70,28 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
             }
         }
         return occurrences;
+    }
+
+    private void debugPreprocessing() {
+        System.out.print("pBegin "+toBitString(pBegin)+"\n");
+        System.out.print("pEnd   "+toBitString(pEnd)+"\n");
+
+        for (char c : alphabet) {
+            System.out.print(c);
+            System.out.print(" "+toBitString(B[c]));
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    private String toBitString(long[] ls) {
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0; j < ls.length; j++) {
+            for (int i = 0; i < w; i++) {
+                sb.append(((ls[j] & (1L << i)) != 0) ? "1" : "0");
+            }
+            sb.append(" ");
+        }
+        return sb.toString();
     }
 }
