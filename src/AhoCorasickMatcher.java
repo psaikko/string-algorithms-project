@@ -10,7 +10,6 @@ public class AhoCorasickMatcher implements MultipleStringMatcher {
     public AhoCorasickMatcher(char[][] patterns, char[] alphabet) {
         this.alphabet = alphabet;
         this.patternTrieRoot = constructAutomaton(patterns);
-        //printTrie(patternTrieRoot);
     }
 
     private void printTrie(Node root) {

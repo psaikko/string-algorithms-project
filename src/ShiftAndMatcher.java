@@ -81,15 +81,16 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
 
         for (int i = 0; i < n; i++) {
             // adapt shift-and for multiple machine word bitstrings
-            for (int j = wc - 1; j >= 0; j--) {
+            for (int j = wc - 1; j > 0; j--) {
                 // fix for << 1 on word boundary
                 long shiftD = (D[j] << 1);
-                if (j > 0 && (D[j-1] & (1L << (w-1))) != 0) {
+                if ((D[j-1] & (1L << (w-1))) != 0) {
                     shiftD += 1;
                 }
                 // or bit of each pattern starting position instead of normal +1
                 D[j] = (shiftD | pBegin[j]) & B[text[i]][j];
             }
+            D[0] = ((D[0] << 1) | pBegin[0]) & B[text[i]][0];
             // see if D matches a pattern endpoint
             for (int j = 0; j < wc; j++) {
                 if ((D[j] & pEnd[j]) != 0) {

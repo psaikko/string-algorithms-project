@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="679358ae-e909-46af-bace-e67ccd068757" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/KarpRabinMatcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AhoCorasickMatcher.java" afterPath="$PROJECT_DIR$/src/AhoCorasickMatcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MultipleStringMatcher.java" afterPath="$PROJECT_DIR$/src/MultipleStringMatcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ShiftAndMatcher.java" afterPath="$PROJECT_DIR$/src/ShiftAndMatcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/StringTools.java" afterPath="$PROJECT_DIR$/src/StringTools.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="String Processing Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,8 +73,19 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="60" selection-start="1064" selection-end="1064" vertical-scroll-proportion="0.6196841" vertical-offset="0" max-vertical-offset="850">
+            <state line="13" column="46" selection-start="353" selection-end="353" vertical-scroll-proportion="0.42256215" vertical-offset="0" max-vertical-offset="1020">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KarpRabinMatcher.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/KarpRabinMatcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="69" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,9 +102,10 @@
       <file leaf-file-name="ShiftAndMatcher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ShiftAndMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="29" selection-start="992" selection-end="992" vertical-scroll-proportion="0.0" vertical-offset="202" max-vertical-offset="1836">
+            <state line="92" column="59" selection-start="2950" selection-end="2950" vertical-scroll-proportion="0.0" vertical-offset="815" max-vertical-offset="1700">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#toBitString#0;class#ShiftAndMatcher#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -111,8 +123,10 @@
       <file leaf-file-name="AhoCorasickMatcher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AhoCorasickMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="85" selection-start="2390" selection-end="2390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
-              <folding />
+            <state line="11" column="60" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
+              <folding>
+                <element signature="method#printTrie#0;class#AhoCorasickMatcher#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,17 +151,18 @@
         <option value="$PROJECT_DIR$/src/ShiftOrMatcher.java" />
         <option value="$PROJECT_DIR$/src/StringTools.java" />
         <option value="$PROJECT_DIR$/src/MultipleStringMatcher.java" />
-        <option value="$PROJECT_DIR$/src/ShiftAndMatcher.java" />
+        <option value="$PROJECT_DIR$/src/KarpRabinMatcher.java" />
         <option value="$PROJECT_DIR$/src/AhoCorasickMatcher.java" />
+        <option value="$PROJECT_DIR$/src/ShiftAndMatcher.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="305" />
-    <option name="y" value="57" />
-    <option name="width" value="1052" />
-    <option name="height" value="956" />
+    <option name="x" value="2" />
+    <option name="y" value="6" />
+    <option name="width" value="1106" />
+    <option name="height" value="954" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -223,6 +238,8 @@
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -414,7 +431,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="305" y="57" width="1052" height="956" extended-state="0" />
+    <frame x="2" y="6" width="1106" height="954" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -423,51 +440,25 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5897436" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="1232" y="123" width="824" height="1059" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5897436" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="1210" y="180" width="702" height="881" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32763532" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3270366" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22297297" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21192661" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34567901" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32947975" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="1240" y="100" width="528" height="633" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922733" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32947975" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="1240" y="100" width="528" height="633" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922733" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.5897436" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="1232" y="123" width="824" height="1059" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32763532" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22297297" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34567901" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USERS">
@@ -507,7 +498,9 @@
     <entry file="file://$PROJECT_DIR$/src/AhoCorasickMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="67" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="1836">
-          <folding />
+          <folding>
+            <element signature="method#printTrie#0;class#AhoCorasickMatcher#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -535,7 +528,9 @@
     <entry file="file://$PROJECT_DIR$/src/AhoCorasickMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="114" selection-start="1232" selection-end="1232" vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1717">
-          <folding />
+          <folding>
+            <element signature="method#printTrie#0;class#AhoCorasickMatcher#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -563,7 +558,9 @@
     <entry file="file://$PROJECT_DIR$/src/AhoCorasickMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="31" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" vertical-offset="583" max-vertical-offset="1768">
-          <folding />
+          <folding>
+            <element signature="method#printTrie#0;class#AhoCorasickMatcher#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -602,23 +599,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AhoCorasickMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="85" selection-start="2390" selection-end="2390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
-          <folding />
+        <state line="11" column="60" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
+          <folding>
+            <element signature="method#printTrie#0;class#AhoCorasickMatcher#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShiftAndMatcher.java">
+    <entry file="file://$PROJECT_DIR$/src/KarpRabinMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="29" selection-start="992" selection-end="992" vertical-scroll-proportion="0.0" vertical-offset="202" max-vertical-offset="1836">
+        <state line="15" column="69" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ShiftAndMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="59" selection-start="2950" selection-end="2950" vertical-scroll-proportion="0.0" vertical-offset="815" max-vertical-offset="1700">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#toBitString#0;class#ShiftAndMatcher#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="60" selection-start="1064" selection-end="1064" vertical-scroll-proportion="0.6196841" vertical-offset="0" max-vertical-offset="850">
+        <state line="13" column="46" selection-start="353" selection-end="353" vertical-scroll-proportion="0.42256215" vertical-offset="0" max-vertical-offset="1020">
           <folding />
         </state>
       </provider>
