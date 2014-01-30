@@ -4,7 +4,7 @@ import java.util.Random;
  * Created by Paul on 1/25/14.
  */
 public class StringTools {
-    private static Random rand = new Random(1337);
+    private static Random rand = new Random();
 
     public static String createText(int length, char[] alphabet) {
         StringBuilder builder = new StringBuilder(length);

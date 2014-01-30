@@ -5,35 +5,41 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
+        randomTest();
+    }
+
+    public static void simpleTest() {
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        String text = "hishers";
+        String[] patterns = {"he", "his", "she", "hers"};
+        ShiftAndMatcher matcher = new ShiftAndMatcher(patterns, alphabet);
+        List<Occurrence> occurrences = matcher.findOccurrences(text);
+        for (Occurrence o : occurrences)
+            System.out.println(o);
+    }
+
+    public static void randomTest() {
         char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
-        /*
         String text = StringTools.createText(100000000, alphabet);
-        String[] patterns = StringTools.getRandomSubstrings(1000, 1000, text);
+        String[] patterns = StringTools.getRandomSubstrings(100, 100, text);
 
+        /*System.out.println(text);
+        for (String p : patterns)
+            System.out.println(p);
+          */
         Long startTime = System.nanoTime();
-        AhoCorasickMatcher matcher = new AhoCorasickMatcher(patterns, alphabet);
+        ShiftAndMatcher matcher = new ShiftAndMatcher(patterns, alphabet);
         Long midTime = System.nanoTime();
         List<Occurrence> occurrences = matcher.findOccurrences(text);
         Long endTime = System.nanoTime();
 
-        System.out.println(occurrences.size());
+        /*for (Occurrence o : occurrences)
+            System.out.println(o);    */
+
+        System.out.println("found: "+occurrences.size());
         System.out.println("preprocess: "+ ((midTime - startTime) / 1000000) + " ms");
         System.out.println("matching: "+ ((endTime - midTime) / 1000000) + " ms");
         System.out.println("total: "+ ((endTime - startTime) / 1000000) + " ms");
-        */
-
-        String text = StringTools.createText(10000, alphabet);
-        //System.out.println(text);
-        String[] patterns = StringTools.getRandomSubstrings(1, 200, text);
-
-        ShiftOrMatcher matcher = new ShiftOrMatcher(patterns[0], alphabet);
-        List<Occurrence> occurrences = matcher.findOccurrences(text);
-
-        //ShiftOrMatcher matcher = new ShiftOrMatcher("assi", alphabet);
-        //List<Occurrence> occurrences = matcher.findOccurrences("apassi");
-        for (Occurrence o : occurrences)
-            System.out.println(o);
-        System.out.println("Done");
     }
 }

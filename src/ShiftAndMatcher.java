@@ -1,0 +1,103 @@
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * Created by Paul on 1/30/14.
+ */
+public class ShiftAndMatcher {
+    long[][] B;
+    int m;
+    char[] alphabet;
+    int w = 64; // length of machine word
+    int wc; // number of machine words used
+    long[] pBegin;
+    long[] pEnd;
+
+    public ShiftAndMatcher(String[] patterns, char[] alphabet) {
+        // treat patterns as one long pattern
+        for (int i = 0; i < patterns.length; i++) {
+            this.m += patterns[i].length();
+        }
+
+        this.wc = (m + w - 1)/w; // ceil(m / w)
+        this.B = new long[255][wc];
+        this.pBegin = new long[wc];
+        this.pEnd = new long[wc];
+        this.alphabet = alphabet;
+
+        // remember start- and endpoints of individual patterns
+        int tmp = 0;
+        for (int i = 0; i < patterns.length; i++) {
+            int l = patterns[i].length();
+            pBegin[tmp / w]     |= (1L << (tmp % w));
+            pEnd[(tmp + l) / w] |= (1L << (tmp + l - 1) % w);
+            tmp += l;
+        }
+
+        // mark i:th bit in B[][c] if pattern[i] == c
+        tmp = 0;
+        for (int i = 0; i < patterns.length; i++) {
+            String pi = patterns[i];
+            for (int j = 0; j < pi.length(); j++) {
+                B[pi.charAt(j)][tmp / w] += (1L << (tmp % w));
+                ++tmp;
+            }
+        }
+
+        //debugPreprocessing();
+    }
+
+    private void debugPreprocessing() {
+        System.out.print("pBegin");
+        System.out.print(" "+toBitString(pBegin));
+        System.out.println();
+
+        System.out.print("pEnd  ");
+        System.out.print(" "+toBitString(pEnd));
+        System.out.println();
+
+        for (char c : alphabet) {
+            System.out.print(c);
+            System.out.print(" "+toBitString(B[c]));
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    private String toBitString(long[] ls) {
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0; j < ls.length; j++) {
+            for (int i = 0; i < w; i++) {
+                sb.append(((ls[j] & (1L << i)) != 0) ? "1" : "0");
+            }
+            sb.append(" ");
+        }
+        return sb.toString();
+    }
+
+    public List<Occurrence> findOccurrences(String text) {
+        List<Occurrence> occurrences = new LinkedList();
+        long[] D = new long[wc];
+        int n = text.length();
+
+        for (int i = 0; i < n; i++) {
+            // adapt shift-and for multiple machine word bitstrings
+            for (int j = wc - 1; j >= 0; j--) {
+                // fix for << 1 on word boundary
+                long shiftD = (D[j] << 1);
+                if (j > 0 && (D[j-1] & (1L << (w-1))) != 0) {
+                    shiftD += 1;
+                }
+                // or bit of each pattern starting position instead of normal +1
+                D[j] = (shiftD | pBegin[j]) & B[text.charAt(i)][j];
+            }
+            // see if D matches a pattern endpoint
+            for (int j = 0; j < wc; j++) {
+                if ((D[j] & pEnd[j]) != 0) {
+                    occurrences.add(new Occurrence(-1, i));
+                }
+            }
+        }
+        return occurrences;
+    }
+}
