@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * Created by Paul on 1/30/14.
  */
-public class ShiftAndMatcher {
+public class ShiftAndMatcher implements MultipleStringMatcher {
     long[][] B;
     int m;
     char[] alphabet;
@@ -13,10 +13,10 @@ public class ShiftAndMatcher {
     long[] pBegin;
     long[] pEnd;
 
-    public ShiftAndMatcher(String[] patterns, char[] alphabet) {
+    public ShiftAndMatcher(char[][] patterns, char[] alphabet) {
         // treat patterns as one long pattern
         for (int i = 0; i < patterns.length; i++) {
-            this.m += patterns[i].length();
+            this.m += patterns[i].length;
         }
 
         this.wc = (m + w - 1)/w; // ceil(m / w)
@@ -28,18 +28,17 @@ public class ShiftAndMatcher {
         // remember start- and endpoints of individual patterns
         int tmp = 0;
         for (int i = 0; i < patterns.length; i++) {
-            int l = patterns[i].length();
+            int l = patterns[i].length;
             pBegin[tmp / w]     |= (1L << (tmp % w));
-            pEnd[(tmp + l) / w] |= (1L << (tmp + l - 1) % w);
+            pEnd[(tmp + l - 1) / w] |= (1L << (tmp + l - 1) % w);
             tmp += l;
         }
 
         // mark i:th bit in B[][c] if pattern[i] == c
         tmp = 0;
         for (int i = 0; i < patterns.length; i++) {
-            String pi = patterns[i];
-            for (int j = 0; j < pi.length(); j++) {
-                B[pi.charAt(j)][tmp / w] += (1L << (tmp % w));
+            for (int j = 0; j < patterns[i].length; j++) {
+                B[patterns[i][j]][tmp / w] += (1L << (tmp % w));
                 ++tmp;
             }
         }
@@ -75,10 +74,10 @@ public class ShiftAndMatcher {
         return sb.toString();
     }
 
-    public List<Occurrence> findOccurrences(String text) {
+    public List<Occurrence> findOccurrences(char[] text) {
         List<Occurrence> occurrences = new LinkedList();
         long[] D = new long[wc];
-        int n = text.length();
+        int n = text.length;
 
         for (int i = 0; i < n; i++) {
             // adapt shift-and for multiple machine word bitstrings
@@ -89,7 +88,7 @@ public class ShiftAndMatcher {
                     shiftD += 1;
                 }
                 // or bit of each pattern starting position instead of normal +1
-                D[j] = (shiftD | pBegin[j]) & B[text.charAt(i)][j];
+                D[j] = (shiftD | pBegin[j]) & B[text[i]][j];
             }
             // see if D matches a pattern endpoint
             for (int j = 0; j < wc; j++) {

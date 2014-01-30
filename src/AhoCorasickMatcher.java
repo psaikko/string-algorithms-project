@@ -3,11 +3,11 @@
  */
 import java.util.*;
 
-public class AhoCorasickMatcher {
+public class AhoCorasickMatcher implements MultipleStringMatcher {
     private Node patternTrieRoot = null;
     private char[] alphabet;
 
-    public AhoCorasickMatcher(String[] patterns, char[] alphabet) {
+    public AhoCorasickMatcher(char[][] patterns, char[] alphabet) {
         this.alphabet = alphabet;
         this.patternTrieRoot = constructAutomaton(patterns);
         //printTrie(patternTrieRoot);
@@ -30,15 +30,14 @@ public class AhoCorasickMatcher {
         }
     }
 
-    public List<Occurrence> findOccurrences(String text) {
+    public List<Occurrence> findOccurrences(char[] text) {
         List<Occurrence> occurrences = new LinkedList();
         Node v = patternTrieRoot;
-        for (int j = 0; j < text.length(); j++) {
-            Character cj = Character.valueOf(text.charAt(j));
-            while (!v.children.containsKey(cj)) {
+        for (int j = 0; j < text.length; j++) {
+            while (!v.children.containsKey(text[j])) {
                 v = v.fail;
             }
-            v = v.children.get(cj);
+            v = v.children.get(text[j]);
             for (Integer i : v.patterns) {
                 occurrences.add(new Occurrence(i, j));
             }
@@ -46,19 +45,19 @@ public class AhoCorasickMatcher {
         return occurrences;
     }
 
-    private Node constructAutomaton(String[] patterns) {
+    private Node constructAutomaton(char[][] patterns) {
         Node root = new Node();
         for (int i = 0; i < patterns.length; i++) {
             Node v = root;
-            String p = patterns[i];
+            char[] p = patterns[i];
             int j = 0;
-            while (j < p.length() && v.children.containsKey(Character.valueOf(p.charAt(j)))) {
-                v = v.children.get(Character.valueOf(p.charAt(j)));
+            while (j < p.length && v.children.containsKey(p[j])) {
+                v = v.children.get(p[j]);
                 j++;
             }
-            while (j < p.length()) {
+            while (j < p.length) {
                 Node u = new Node();
-                v.children.put(Character.valueOf(p.charAt(j)), u);
+                v.children.put(p[j], u);
                 v = u;
                 j++;
             }
@@ -71,7 +70,7 @@ public class AhoCorasickMatcher {
     private void computeFail(Node root) {
         Node fallback = new Node();
         for (int i = 0; i < alphabet.length; i++) {
-            fallback.children.put(Character.valueOf(alphabet[i]), root);
+            fallback.children.put(alphabet[i], root);
         }
         root.fail = fallback;
         Deque<Node> queue = new LinkedList();
@@ -97,6 +96,6 @@ public class AhoCorasickMatcher {
         public int id = nodecount++;
         public Node fail = null;
         public Map<Character, Node> children = new HashMap();
-        public Set<Integer> patterns = new TreeSet<Integer>();
+        public Set<Integer> patterns = new HashSet();
     }
 }

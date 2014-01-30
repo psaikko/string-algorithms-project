@@ -1,6 +1,8 @@
+import java.util.List;
+
 /**
  * Created by Paul on 1/30/14.
  */
-public abstract class MultipleStringMatcher {
-
+public interface MultipleStringMatcher {
+    public abstract List<Occurrence> findOccurrences(char[] text);
 }

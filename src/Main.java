@@ -9,27 +9,26 @@ public class Main {
     }
 
     public static void simpleTest() {
-        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        /*char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         String text = "hishers";
         String[] patterns = {"he", "his", "she", "hers"};
         ShiftAndMatcher matcher = new ShiftAndMatcher(patterns, alphabet);
         List<Occurrence> occurrences = matcher.findOccurrences(text);
         for (Occurrence o : occurrences)
-            System.out.println(o);
+            System.out.println(o); */
     }
 
     public static void randomTest() {
         char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-
-        String text = StringTools.createText(100000000, alphabet);
-        String[] patterns = StringTools.getRandomSubstrings(100, 100, text);
+        char[] text = StringTools.createText(10000000, alphabet);
+        char[][] patterns = StringTools.getRandomSubstrings(10000, 16, text);
 
         /*System.out.println(text);
         for (String p : patterns)
             System.out.println(p);
           */
         Long startTime = System.nanoTime();
-        ShiftAndMatcher matcher = new ShiftAndMatcher(patterns, alphabet);
+        MultipleStringMatcher matcher = new ShiftAndMatcher(patterns, alphabet);
         Long midTime = System.nanoTime();
         List<Occurrence> occurrences = matcher.findOccurrences(text);
         Long endTime = System.nanoTime();

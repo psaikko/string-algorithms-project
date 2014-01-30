@@ -4,24 +4,21 @@ import java.util.Random;
  * Created by Paul on 1/25/14.
  */
 public class StringTools {
-    private static Random rand = new Random();
+    private static Random rand = new Random(1337);
 
-    public static String createText(int length, char[] alphabet) {
-        StringBuilder builder = new StringBuilder(length);
+    public static char[] createText(int length, char[] alphabet) {
+        char[] string = new char[length];
         for (int i = 0; i < length; i++) {
-            Character c = Character.valueOf(alphabet[rand.nextInt(alphabet.length)]);
-            builder.append(c);
-            if (((int)c.charValue()) > 255)
-                System.out.println("derp: "+c);
+            string[i] = alphabet[rand.nextInt(alphabet.length)];
         }
-        return builder.toString();
+        return string;
     }
 
-    public static String[] getRandomSubstrings(int count, int patternLength, String text) {
-        String[] patterns = new String[count];
+    public static char[][] getRandomSubstrings(int count, int patternLength, char[] text) {
+        char[][] patterns = new char[count][patternLength];
         for (int i = 0; i < count; i++) {
-            int patternStart = rand.nextInt(text.length() - patternLength);
-            patterns[i] = text.substring(patternStart, patternStart + patternLength);
+            int patternStart = rand.nextInt(text.length - patternLength);
+            System.arraycopy(text, patternStart, patterns[i], 0, patternLength);
         }
         return patterns;
     }
