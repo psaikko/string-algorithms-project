@@ -23,11 +23,15 @@ public class Main {
         System.out.println("total: "+ ((endTime - startTime) / 1000000) + " ms");
         */
 
-        String text = StringTools.createText(1000000, alphabet);
-        String[] patterns = StringTools.getRandomSubstrings(1, 5, text);
+        String text = StringTools.createText(10000, alphabet);
+        //System.out.println(text);
+        String[] patterns = StringTools.getRandomSubstrings(1, 200, text);
 
         ShiftOrMatcher matcher = new ShiftOrMatcher(patterns[0], alphabet);
         List<Occurrence> occurrences = matcher.findOccurrences(text);
+
+        //ShiftOrMatcher matcher = new ShiftOrMatcher("assi", alphabet);
+        //List<Occurrence> occurrences = matcher.findOccurrences("apassi");
         for (Occurrence o : occurrences)
             System.out.println(o);
         System.out.println("Done");
