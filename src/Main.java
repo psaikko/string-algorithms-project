@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by Paul on 1/24/14.
@@ -11,44 +12,40 @@ public class Main {
     public static void randomTest() {
         Long startTime, midTime, endTime;
         char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-        char[] text = StringTools.createText(100000000, alphabet);
-        char[][] patterns = StringTools.getRandomSubstrings(50, 50, text);
+        char[] text = StringTools.createText(500000000, alphabet);
+        char[][] patterns = StringTools.getRandomSubstrings(16, 32, text);
+        MultipleStringMatcher matcher;
+        List<Occurrence> occurrences;
 
-        System.out.println("Shift-And\n");
         startTime = System.nanoTime();
-        MultipleStringMatcher matcher = new ShiftAndMatcher(patterns, alphabet);
+        matcher = new ShiftAndMatcher(patterns, alphabet);
         midTime = System.nanoTime();
-        System.out.println("preprocess: "+ ((midTime - startTime) / 1000000) + " ms");
-        List<Occurrence> occurrences = matcher.findOccurrences(text);
+        occurrences = matcher.findOccurrences(text);
         endTime = System.nanoTime();
-        System.out.println("matching: "+ ((endTime - midTime) / 1000000) + " ms");
-        System.out.println("total: "+ ((endTime - startTime) / 1000000) + " ms");
-        System.out.println("found: "+occurrences.size());
+        printStats("Shift-And", startTime, midTime, endTime, occurrences.size());
 
-        System.out.println("\n");
-
-        System.out.println("Aho-Corasick\n");
         startTime = System.nanoTime();
         matcher = new AhoCorasickMatcher(patterns, alphabet);
         midTime = System.nanoTime();
-        System.out.println("preprocess: "+ ((midTime - startTime) / 1000000) + " ms");
         occurrences = matcher.findOccurrences(text);
         endTime = System.nanoTime();
-        System.out.println("matching: "+ ((endTime - midTime) / 1000000) + " ms");
-        System.out.println("total: "+ ((endTime - startTime) / 1000000) + " ms");
-        System.out.println("found: "+occurrences.size());
+        printStats("Aho-Corasick", startTime, midTime, endTime, occurrences.size());
 
-        System.out.println("\n");
-
-        System.out.println("Karp-Rabin\n");
         startTime = System.nanoTime();
         matcher = new KarpRabinMatcher(patterns);
         midTime = System.nanoTime();
-        System.out.println("preprocess: "+ ((midTime - startTime) / 1000000) + " ms");
         occurrences = matcher.findOccurrences(text);
         endTime = System.nanoTime();
-        System.out.println("matching: "+ ((endTime - midTime) / 1000000) + " ms");
-        System.out.println("total: "+ ((endTime - startTime) / 1000000) + " ms");
-        System.out.println("found: "+occurrences.size());
+        printStats("Karp-Rabin",startTime, midTime, endTime, occurrences.size());
+
+    }
+
+    public static void printStats(String name, long start, long mid, long end, int count) {
+        System.out.println(name+"\n");
+        System.out.println("preprocess: "+ ((mid - start) / 1000000) + " ms");
+        System.out.println("matching: "+ ((end - mid) / 1000000) + " ms");
+        System.out.println("total: "+ ((end - start) / 1000000) + " ms");
+        System.out.println("found: "+count);
+        System.out.println();
     }
 }

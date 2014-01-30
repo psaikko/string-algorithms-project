@@ -43,7 +43,6 @@ public class KarpRabinMatcher implements MultipleStringMatcher {
         }
         if (hps.containsKey(ht) && eq(patterns[hps.get(ht)], text, n-m))
             occurrences.add(new Occurrence(hps.get(ht), n-m));
-        System.out.println(failures);
 
         return occurrences;
     }
@@ -54,14 +53,14 @@ public class KarpRabinMatcher implements MultipleStringMatcher {
     }
 
     private long mPow(long a, long b) {
-        if (b == 0) return 1;
-        return mod(a* mPow(a, b - 1),q);
+        long pow = 1;
+        while (--b >= 0) {
+            pow = mod(pow * a, q);
+        }
+        return pow;
     }
 
-    int failures = 0;
-
     private boolean eq(char[] P, char[] T, int start) {
-        failures++;
         for (int i = 0; i < P.length; i++)
             if (P[i] != T[i+start])
                 return false;

@@ -42,18 +42,12 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
                 ++tmp;
             }
         }
-
         //debugPreprocessing();
     }
 
     private void debugPreprocessing() {
-        System.out.print("pBegin");
-        System.out.print(" "+toBitString(pBegin));
-        System.out.println();
-
-        System.out.print("pEnd  ");
-        System.out.print(" "+toBitString(pEnd));
-        System.out.println();
+        System.out.print("pBegin "+toBitString(pBegin)+"\n");
+        System.out.print("pEnd   "+toBitString(pEnd)+"\n");
 
         for (char c : alphabet) {
             System.out.print(c);
