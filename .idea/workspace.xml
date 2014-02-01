@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="679358ae-e909-46af-bace-e67ccd068757" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KarpRabinMatcher.java" afterPath="$PROJECT_DIR$/src/KarpRabinMatcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ShiftAndMatcher.java" afterPath="$PROJECT_DIR$/src/ShiftAndMatcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -73,18 +71,16 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="8" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="969">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="22" column="57" selection-start="741" selection-end="741" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="11" selection-start="30" selection-end="30" vertical-scroll-proportion="0.089788735" vertical-offset="0" max-vertical-offset="568">
+            <state line="3" column="87" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
               <folding />
             </state>
           </provider>
@@ -93,7 +89,7 @@
       <file leaf-file-name="KarpRabinMatcher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/KarpRabinMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="21" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="1224">
+            <state line="41" column="21" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
@@ -102,19 +98,21 @@
       <file leaf-file-name="MultipleStringMatcher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MultipleStringMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="40" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+            <state line="5" column="40" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="238">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShiftAndMatcher.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ShiftAndMatcher.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ShiftAndMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="68" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+            <state line="58" column="16" selection-start="1855" selection-end="1855" vertical-scroll-proportion="0.5130597" vertical-offset="694" max-vertical-offset="1734">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#toBitString#0;class#ShiftAndMatcher#0" expanded="false" />
+                <element signature="method#or#0;class#ShiftAndMatcher#0" expanded="false" />
+                <element signature="method#and#0;class#ShiftAndMatcher#0" expanded="false" />
+                <element signature="method#lShift#0;class#ShiftAndMatcher#0" expanded="false" />
+                <element signature="method#bitCountAnd#0;class#ShiftAndMatcher#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -132,7 +130,7 @@
       <file leaf-file-name="AhoCorasickMatcher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AhoCorasickMatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="37" selection-start="3026" selection-end="3026" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1768">
+            <state line="89" column="5" selection-start="2924" selection-end="2924" vertical-scroll-proportion="0.0" vertical-offset="1513" max-vertical-offset="1802">
               <folding />
             </state>
           </provider>
@@ -159,15 +157,15 @@
         <option value="$PROJECT_DIR$/src/MultipleStringMatcher.java" />
         <option value="$PROJECT_DIR$/src/AhoCorasickMatcher.java" />
         <option value="$PROJECT_DIR$/src/KarpRabinMatcher.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/ShiftAndMatcher.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="694" />
-    <option name="width" value="1106" />
+    <option name="x" value="2" />
+    <option name="width" value="1184" />
     <option name="height" value="1160" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -230,8 +228,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,6 +302,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -329,19 +340,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -437,7 +435,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="694" y="0" width="1106" height="1160" extended-state="0" />
+    <frame x="2" y="0" width="1184" height="1160" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -446,24 +444,24 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4257703" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="1180" y="610" width="702" height="520" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44634378" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="1180" y="610" width="702" height="520" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265925" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325736" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21192661" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21660958" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3033367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32947975" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="1240" y="100" width="528" height="633" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922733" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -489,10 +487,62 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="46" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+        <state line="18" column="8" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="969">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="11" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KarpRabinMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="21" selection-start="1154" selection-end="1154" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MultipleStringMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="40" selection-start="103" selection-end="103" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ShiftAndMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="68" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="2125">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#or#0;class#ShiftAndMatcher#0" expanded="false" />
+            <element signature="method#and#0;class#ShiftAndMatcher#0" expanded="false" />
+            <element signature="method#lShift#0;class#ShiftAndMatcher#0" expanded="false" />
+            <element signature="method#bitCountAnd#0;class#ShiftAndMatcher#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StringTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="80" selection-start="749" selection-end="749" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AhoCorasickMatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="37" selection-start="2926" selection-end="2926" vertical-scroll-proportion="0.0" vertical-offset="1598" max-vertical-offset="1887">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="46" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -514,8 +564,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="92" column="59" selection-start="2950" selection-end="2950" vertical-scroll-proportion="0.0" vertical-offset="1564" max-vertical-offset="1700">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#toBitString#0;class#ShiftAndMatcher#0" expanded="false" />
+            <element signature="method#or#0;class#ShiftAndMatcher#0" expanded="false" />
+            <element signature="method#and#0;class#ShiftAndMatcher#0" expanded="false" />
+            <element signature="method#lShift#0;class#ShiftAndMatcher#0" expanded="false" />
+            <element signature="method#bitCountAnd#0;class#ShiftAndMatcher#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -537,9 +589,7 @@
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="88" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -567,9 +617,7 @@
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="48" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="629">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -597,9 +645,7 @@
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="21" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="340">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -619,9 +665,7 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="657" column="0" selection-start="24186" selection-end="24186" vertical-scroll-proportion="0.33333334" vertical-offset="10368" max-vertical-offset="52292">
-          <folding />
-        </state>
+        <state line="657" column="0" selection-start="24186" selection-end="24186" vertical-scroll-proportion="0.33333334" vertical-offset="10368" max-vertical-offset="52292" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Occurrence.java">
@@ -652,36 +696,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShiftAndMatcher.java">
+    <entry file="file://$PROJECT_DIR$/src/AhoCorasickMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="68" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#toBitString#0;class#ShiftAndMatcher#0" expanded="false" />
-          </folding>
+        <state line="89" column="5" selection-start="2924" selection-end="2924" vertical-scroll-proportion="0.0" vertical-offset="1513" max-vertical-offset="1802">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AhoCorasickMatcher.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="37" selection-start="3026" selection-end="3026" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1768">
+        <state line="3" column="87" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="8" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="969">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="22" column="57" selection-start="741" selection-end="741" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/ShiftAndMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="11" selection-start="30" selection-end="30" vertical-scroll-proportion="0.089788735" vertical-offset="0" max-vertical-offset="568">
-          <folding />
+        <state line="58" column="16" selection-start="1855" selection-end="1855" vertical-scroll-proportion="0.5130597" vertical-offset="694" max-vertical-offset="1734">
+          <folding>
+            <element signature="method#or#0;class#ShiftAndMatcher#0" expanded="false" />
+            <element signature="method#and#0;class#ShiftAndMatcher#0" expanded="false" />
+            <element signature="method#lShift#0;class#ShiftAndMatcher#0" expanded="false" />
+            <element signature="method#bitCountAnd#0;class#ShiftAndMatcher#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

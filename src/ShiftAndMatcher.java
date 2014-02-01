@@ -45,6 +45,54 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
         //debugPreprocessing();
     }
 
+    public List<Occurrence> findOccurrences(char[] text) {
+        List<Occurrence> occurrences = new LinkedList();
+        long[] D = new long[wc];
+        int n = text.length;
+
+        for (int i = 0; i < n; i++) {
+            // adapt shift-and for multiple machine word bitstrings, multiple patterns
+            D = and(or(lShift(D), pBegin), B[text[i]]);
+
+            // see if D matches a pattern endpoint
+            int matches = bitCountAnd(D, pEnd);
+
+            for (int j = 0; j < matches; j++)
+                occurrences.add(new Occurrence(-1, i));
+        }
+        return occurrences;
+    }
+
+    private long[] or(long[] A, long[] B) {
+        for (int i = 0; i < wc; i++)
+            A[i] |= B[i];
+        return A;
+    }
+
+    private long[] and(long[] A, long[] B) {
+        for (int i = 0; i < wc; i++)
+            A[i] &= B[i];
+        return A;
+    }
+
+    private final long lastBit = 1 << (w-1);
+    private long[] lShift(long[] A) {
+        for (int i = wc - 1; i > 0; i--) {
+            A[i] <<= 1;
+            if ((A[i - 1] & lastBit) != 0)
+                A[i] += 1;
+        }
+        A[0] <<= 1;
+        return A;
+    }
+
+    private int bitCountAnd(long[] A, long[] B) {
+        int count = 0;
+        for (int i = 0; i < wc; i++)
+            count += Long.bitCount(A[i] & B[i]);
+        return count;
+    }
+
     private void debugPreprocessing() {
         System.out.print("pBegin "+toBitString(pBegin)+"\n");
         System.out.print("pEnd   "+toBitString(pEnd)+"\n");
@@ -66,32 +114,5 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
             sb.append(" ");
         }
         return sb.toString();
-    }
-
-    public List<Occurrence> findOccurrences(char[] text) {
-        List<Occurrence> occurrences = new LinkedList();
-        long[] D = new long[wc];
-        int n = text.length;
-
-        for (int i = 0; i < n; i++) {
-            // adapt shift-and for multiple machine word bitstrings
-            for (int j = wc - 1; j > 0; j--) {
-                // fix for << 1 on word boundary
-                long shiftD = (D[j] << 1);
-                if ((D[j-1] & (1L << (w-1))) != 0) {
-                    shiftD += 1;
-                }
-                // or bit of each pattern starting position instead of normal +1
-                D[j] = (shiftD | pBegin[j]) & B[text[i]][j];
-            }
-            D[0] = ((D[0] << 1) | pBegin[0]) & B[text[i]][0];
-            // see if D matches a pattern endpoint
-            for (int j = 0; j < wc; j++) {
-                if ((D[j] & pEnd[j]) != 0) {
-                    occurrences.add(new Occurrence(-1, i));
-                }
-            }
-        }
-        return occurrences;
     }
 }
