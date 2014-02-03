@@ -47,15 +47,15 @@ public class KarpRabinMatcher implements MultipleStringMatcher {
             if (hps.containsKey(ht)) {
                 for (Integer j : hps.get(ht)) {
                     if(eq(patterns[j], text, i))
-                        occurrences.add(new Occurrence(j, i));
+                        occurrences.add(new Occurrence(j, i+m-1));
                 }
             }
             ht = mod(((ht - text[i] * s)*r + text[i+m]), q);
         }
         if (hps.containsKey(ht)) {
             for (Integer j : hps.get(ht)) {
-                if(eq(patterns[j], text, n-m))
-                    occurrences.add(new Occurrence(j, n-m));
+                if(eq(patterns[j], text, n))
+                    occurrences.add(new Occurrence(j, n-1));
             }
         }
 

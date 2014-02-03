@@ -75,7 +75,7 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
         return A;
     }
 
-    private final long lastBit = 1 << (w-1);
+    private final long lastBit = 1L << (w-1);
     private long[] lShift(long[] A) {
         for (int i = wc - 1; i > 0; i--) {
             A[i] <<= 1;
