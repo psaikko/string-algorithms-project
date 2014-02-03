@@ -13,7 +13,7 @@ public class KarpRabinMatcher implements MultipleStringMatcher {
     int n;
     int m;
 
-    Map<Long, Integer> hps = new HashMap();
+    Map<Long, List<Integer>> hps = new HashMap();
     char[][] patterns;
 
     // assume equal length patterns
@@ -25,7 +25,14 @@ public class KarpRabinMatcher implements MultipleStringMatcher {
             long hp = 0;
             for (int i = 0; i < m; i++)
                 hp = mod((hp * r + patterns[j][i]), q);
-            hps.put(hp, j);
+            if (!hps.containsKey(hp)) {
+                List<Integer> indices = new LinkedList<Integer>();
+                indices.add(j);
+                hps.put(hp, indices);
+            } else {
+                hps.get(hp).add(j);
+            }
+
         }
     }
 
@@ -37,12 +44,20 @@ public class KarpRabinMatcher implements MultipleStringMatcher {
             ht = mod((ht * r + text[i]), q);
 
         for (int i = 0; i < n-m; i++) {
-            if (hps.containsKey(ht) && eq(patterns[hps.get(ht)], text, i))
-                occurrences.add(new Occurrence(hps.get(ht), i));
+            if (hps.containsKey(ht)) {
+                for (Integer j : hps.get(ht)) {
+                    if(eq(patterns[j], text, i))
+                        occurrences.add(new Occurrence(j, i));
+                }
+            }
             ht = mod(((ht - text[i] * s)*r + text[i+m]), q);
         }
-        if (hps.containsKey(ht) && eq(patterns[hps.get(ht)], text, n-m))
-            occurrences.add(new Occurrence(hps.get(ht), n-m));
+        if (hps.containsKey(ht)) {
+            for (Integer j : hps.get(ht)) {
+                if(eq(patterns[j], text, n-m))
+                    occurrences.add(new Occurrence(j, n-m));
+            }
+        }
 
         return occurrences;
     }

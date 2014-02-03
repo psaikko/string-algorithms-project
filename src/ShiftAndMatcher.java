@@ -20,7 +20,7 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
         }
 
         this.wc = (m + w - 1)/w; // ceil(m / w)
-        this.B = new long[255][wc];
+        this.B = new long[256][wc];
         this.pBegin = new long[wc];
         this.pEnd = new long[wc];
         this.alphabet = alphabet;
@@ -29,7 +29,7 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
         int tmp = 0;
         for (int i = 0; i < patterns.length; i++) {
             int l = patterns[i].length;
-            pBegin[tmp / w]     |= (1L << (tmp % w));
+            pBegin[tmp / w]         |= (1L << (tmp % w));
             pEnd[(tmp + l - 1) / w] |= (1L << (tmp + l - 1) % w);
             tmp += l;
         }

@@ -1,3 +1,5 @@
+import sun.net.www.content.image.jpeg;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,9 +13,18 @@ public class Main {
 
     public static void randomTest() {
         Long startTime, midTime, endTime;
-        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-        char[] text = StringTools.createText(10000000, alphabet);
-        char[][] patterns = StringTools.getRandomSubstrings(100, 100, text);
+        int alphabet_size = 2;
+        char[] alphabet = new char[alphabet_size];
+        for (char i = 0; i < alphabet_size; i++) alphabet[i] = i;
+        char[] text = StringTools.createText(1000000, alphabet);
+        char[][] patterns = StringTools.getRandomSubstrings(10, 10, text);
+
+        for (int i = 0; i < patterns.length; i++) {
+            for (int j = 0; j < patterns[0].length; j++)
+                System.out.print((int)patterns[i][j]+" ");
+            System.out.println();
+        }
+
         MultipleStringMatcher matcher;
         List<Occurrence> occurrences;
 
@@ -23,7 +34,16 @@ public class Main {
         occurrences = matcher.findOccurrences(text);
         endTime = System.nanoTime();
         printStats("Shift-And", startTime, midTime, endTime, occurrences.size());
-
+                /*
+        int j = 10;
+        for (Occurrence o : occurrences) {
+            if (j-- < 0) break;
+            System.out.print(o.index + " ");
+            for (int i = 9; i >= 0; i--)
+                System.out.print((int)text[o.index - i] + " ");
+            System.out.println();
+        }
+                  */
         startTime = System.nanoTime();
         matcher = new AhoCorasickMatcher(patterns, alphabet);
         midTime = System.nanoTime();
