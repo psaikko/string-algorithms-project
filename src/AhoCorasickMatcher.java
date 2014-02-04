@@ -12,31 +12,14 @@ public class AhoCorasickMatcher implements MultipleStringMatcher {
         this.patternTrieRoot = constructAutomaton(patterns);
     }
 
-    private void printTrie(Node root) {
-        Deque<Node> queue = new LinkedList();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            Node v = queue.removeFirst();
-            System.out.print(String.format("id: %d, fail: %d, patterns: [ ", v.id, v.fail.id));
-            for (Integer i : v.patterns)
-                System.out.print(i + " ");
-            System.out.println("]");
-            for (Character c : v.children.keySet()) {
-                Node child = v.children.get(c);
-                System.out.println(String.format("  \"%s\", id: %d", c, child.id));
-                queue.addLast(child);
-            }
-        }
-    }
-
     public List<Occurrence> findOccurrences(char[] text) {
         List<Occurrence> occurrences = new LinkedList();
         Node v = patternTrieRoot;
         for (int j = 0; j < text.length; j++) {
-            while (!v.children.containsKey(text[j])) {
+            while (v.children[text[j]] == null) {
                 v = v.fail;
             }
-            v = v.children.get(text[j]);
+            v = v.children[text[j]];
             for (Integer i : v.patterns) {
                 occurrences.add(new Occurrence(i, j));
             }
@@ -50,13 +33,13 @@ public class AhoCorasickMatcher implements MultipleStringMatcher {
             Node v = root;
             char[] p = patterns[i];
             int j = 0;
-            while (j < p.length && v.children.containsKey(p[j])) {
-                v = v.children.get(p[j]);
+            while (j < p.length && v.children[p[j]] != null) {
+                v = v.children[p[j]];
                 j++;
             }
             while (j < p.length) {
                 Node u = new Node();
-                v.children.put(p[j], u);
+                v.children[p[j]] = u;
                 v = u;
                 j++;
             }
@@ -69,22 +52,24 @@ public class AhoCorasickMatcher implements MultipleStringMatcher {
     private void computeFail(Node root) {
         Node fallback = new Node();
         for (int i = 0; i < alphabet.length; i++) {
-            fallback.children.put(alphabet[i], root);
+            fallback.children[alphabet[i]] = root;
         }
         root.fail = fallback;
         Deque<Node> queue = new LinkedList();
         queue.add(root);
         while (!queue.isEmpty()) {
             Node u = queue.removeFirst();
-            for (Character c : u.children.keySet()) {
-                Node v = u.children.get(c);
-                Node w = u.fail;
-                while (!w.children.containsKey(c)) {
-                    w = w.fail;
+            for (char c = 0; c < 256; c++) {
+                Node v = u.children[c];
+                    if (v != null) {
+                    Node w = u.fail;
+                    while (w.children[c] == null) {
+                        w = w.fail;
+                    }
+                    v.fail = w.children[c];
+                    v.patterns.addAll(v.fail.patterns);
+                    queue.addLast(v);
                 }
-                v.fail = w.children.get(c);
-                v.patterns.addAll(v.fail.patterns);
-                queue.addLast(v);
             }
         }
     }
@@ -94,7 +79,26 @@ public class AhoCorasickMatcher implements MultipleStringMatcher {
     private class Node {
         public int id = nodecount++;
         public Node fail = null;
-        public Map<Character, Node> children = new HashMap();
+        public Node[] children = new Node[256];
         public Set<Integer> patterns = new HashSet();
+    }
+
+    private void printTrie(Node root) {
+        Deque<Node> queue = new LinkedList();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node v = queue.removeFirst();
+            System.out.print(String.format("id: %d, fail: %d, patterns: [ ", v.id, v.fail.id));
+            for (Integer i : v.patterns)
+                System.out.print(i + " ");
+            System.out.println("]");
+            for (char c = 0; c < 256; c++) {
+                Node child = v.children[c];
+                if (child != null) {
+                    System.out.println(String.format("  \"%s\", id: %d", c, child.id));
+                    queue.addLast(child);
+                }
+            }
+        }
     }
 }
