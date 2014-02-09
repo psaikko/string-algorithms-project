@@ -43,8 +43,7 @@ public class Main {
             char[][] patterns = StringTools.getRandomSubstrings(patternCount, patternLength, text);
 
             MultipleStringMatcher matcher;
-            long startTime = 0,
-                 endTime = -1;
+            long startTime, endTime;
             switch(algorithm) {
                 case "AhoCorasick":
                     startTime = System.nanoTime();
@@ -65,14 +64,14 @@ public class Main {
                     throw new Exception("algorithm: not one of {AhoCorasick,KarpRabin,ShiftAnd}");
             }
 
-            System.out.println("Preprocessing (μs): "+((endTime - startTime)/1000));
+            System.out.println("Preprocessing: "+(endTime - startTime));
 
             List<Occurrence> occurrences;
             startTime = System.nanoTime();
             occurrences = matcher.findOccurrences(text);
             endTime = System.nanoTime();
 
-            System.out.println("Searching (μs): "+((endTime - startTime)/1000));
+            System.out.println("Searching: "+(endTime - startTime));
             System.out.println("Matches: "+occurrences.size());
         } catch(Exception e) {
             System.out.println("Exception: "+e.getMessage());
@@ -81,62 +80,14 @@ public class Main {
         }
     }
 
-    public static void randomTest() {
-        Long startTime, midTime, endTime;
-        int alphabet_size = 2;
-        char[] alphabet = new char[alphabet_size];
-        for (char i = 0; i < alphabet_size; i++) alphabet[i] = i;
-        char[] text = StringTools.createText(100000000, alphabet);
-        char[][] patterns = StringTools.getRandomSubstrings(100, 9, text);
-
-        MultipleStringMatcher matcher;
-        List<Occurrence> occurrences;
-
-        startTime = System.nanoTime();
-        matcher = new ShiftAndMatcher(patterns, alphabet);
-        midTime = System.nanoTime();
-        occurrences = matcher.findOccurrences(text);
-        endTime = System.nanoTime();
-        printStats("Shift-And", startTime, midTime, endTime, occurrences.size());
-
-        startTime = System.nanoTime();
-        matcher = new AhoCorasickMatcher(patterns, alphabet);
-        midTime = System.nanoTime();
-        occurrences = matcher.findOccurrences(text);
-        endTime = System.nanoTime();
-        printStats("Aho-Corasick", startTime, midTime, endTime, occurrences.size());
-
-        startTime = System.nanoTime();
-        matcher = new KarpRabinMatcher(patterns);
-        midTime = System.nanoTime();
-        occurrences = matcher.findOccurrences(text);
-        endTime = System.nanoTime();
-        printStats("Karp-Rabin",startTime, midTime, endTime, occurrences.size());
-    }
-
-    public static void printCharArray(char[] string) {
-        for (int i = 0; i < string.length; i++)
-            System.out.print((int)string[i]);
-        System.out.println();
-    }
-
-    public static void printStats(String name, long start, long mid, long end, int count) {
-        System.out.println(name+"\n");
-        System.out.println("preprocess: "+ ((mid - start) / 1000000) + " ms");
-        System.out.println("matching: "+ ((end - mid) / 1000000) + " ms");
-        System.out.println("total: "+ ((end - start) / 1000000) + " ms");
-        System.out.println("found: "+count);
-        System.out.println();
-    }
-
     private static void printHelp() {
         System.out.println();
         System.out.println("Help:");
-        System.out.println("StringProcessingProject <dataSet> <length> <patternCount> <patternLength> <algorithm>");
+        System.out.println("StringProcessingProject <dataSet> <textLength> <patternCount> <patternLength> <algorithm>");
         System.out.println("dataSet:");
         System.out.println("\tPath to a plaintext file or");
         System.out.println("\tRandom<X> where 2 <= X <= 256 is the alphabet size");
-        System.out.println("length: text length to use, must fit in memory");
+        System.out.println("textLength: text length to use, must fit in memory");
         System.out.println("patternCount: number of patterns");
         System.out.println("patternLength: length of patterns");
         System.out.println("algorithm: one of");

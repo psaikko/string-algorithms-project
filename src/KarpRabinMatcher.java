@@ -26,7 +26,7 @@ public class KarpRabinMatcher implements MultipleStringMatcher {
             for (int i = 0; i < m; i++)
                 hp = mod((hp * r + patterns[j][i]), q);
             if (!hps.containsKey(hp)) {
-                List<Integer> indices = new LinkedList<Integer>();
+                List<Integer> indices = new LinkedList<>();
                 indices.add(j);
                 hps.put(hp, indices);
             } else {
@@ -54,7 +54,7 @@ public class KarpRabinMatcher implements MultipleStringMatcher {
         }
         if (hps.containsKey(ht)) {
             for (Integer j : hps.get(ht)) {
-                if(eq(patterns[j], text, n))
+                if(eq(patterns[j], text, n-m))
                     occurrences.add(new Occurrence(j, n-1));
             }
         }
