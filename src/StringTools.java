@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Random;
 
 /**
@@ -12,6 +15,26 @@ public class StringTools {
             string[i] = alphabet[rand.nextInt(alphabet.length)];
         }
         return string;
+    }
+
+    public static char[] fromFile(String filename, int length) throws Exception {
+        BufferedReader br;
+        try {
+            File dataFile = new File(filename);
+            FileReader fr = new FileReader(dataFile);
+            br = new BufferedReader(fr);
+        } catch (Exception e) {
+            throw new Exception("could not open data file \""+filename+"\"");
+        }
+        char[] text = new char[length];
+        int result = br.read(text, 0 ,length);
+        br.close();
+        if (result != length)
+            throw new Exception("data file \"+filename\" too short for text of length "+length);
+        // deal with strange characters
+        for (int i = 0; i < length; i++)
+            text[i] %= 256;
+        return text;
     }
 
     public static char[][] getRandomSubstrings(int count, int patternLength, char[] text) {

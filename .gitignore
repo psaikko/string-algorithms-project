@@ -3,3 +3,4 @@ out/
 *.log
 src/*.class
 .idea
+data/
