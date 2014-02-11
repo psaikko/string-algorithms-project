@@ -10,7 +10,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try {
-            if (args.length != 5) throw new Exception();
+            if (args.length == 1) {
+                if (!args[0].toLowerCase().equals("test"))
+                    throw new Exception();
+                Test.runAll();
+                return;
+            } else if (args.length != 5) {
+                throw new Exception();
+            }
             final String dataSet = args[0];
 
             final int textLength;
@@ -82,19 +89,25 @@ public class Main {
 
     private static void printHelp() {
         System.out.println();
-        System.out.println("Help:");
-        System.out.println("StringProcessingProject <dataSet> <textLength> <patternCount> <patternLength> <algorithm>");
-        System.out.println("dataSet:");
-        System.out.println("\tPath to a plaintext file or");
-        System.out.println("\tRandom<X> where 2 <= X <= 256 is the alphabet size");
-        System.out.println("textLength: text length to use, must fit in memory");
-        System.out.println("patternCount: number of patterns");
-        System.out.println("patternLength: length of patterns");
-        System.out.println("algorithm: one of");
+        System.out.println("Parameter format:");
+        System.out.println("\t<dataSet> <textLength> <patternCount> <patternLength> <algorithm>");
+        System.out.println("\ttest");
+        System.out.println();
+        System.out.println("<dataSet>");
+        System.out.println("\tA filepath, to read text from some plaintext file");
+        System.out.println("\t\"RandomX\" 2 <= X <= 256, to generate random data with alphabet size X");
+        System.out.println("<textLength> text length to use, must fit in JVM memory");
+        System.out.println("<patternCount> number of patterns");
+        System.out.println("<patternLength> length of patterns");
+        System.out.println("<algorithm> one of");
         System.out.println("\tShiftAnd");
         System.out.println("\tAhoCorasick");
         System.out.println("\tKarpRabin");
         System.out.println();
-        System.out.println("Example: StringProcessingProject Random64 1000000 32 8 ShiftAnd");
+        System.out.println("Example parameters:");
+        System.out.println("\tRandom64 1000000 32 8 ShiftAnd");
+        System.out.println("\tRandom256 1000000 100 100 AhoCorasick");
+        System.out.println("\t.\\file.txt 10000 10 10 KarpRabin");
+        System.out.println("\ttest");
     }
 }

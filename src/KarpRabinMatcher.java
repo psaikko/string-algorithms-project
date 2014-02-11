@@ -5,6 +5,12 @@ import java.util.Map;
 
 /**
  * Created by Paul on 1/30/14.
+ *
+ * Implementation of the Karp-Rabin algorithm for multiple exact string matching.
+ * The values for q and r are fairly unoptimized, q is a large prime.
+ *
+ * To deal with hash collisions or equal patterns, we store for every hash
+ * a list of patterns that produce that value.
  */
 public class KarpRabinMatcher implements MultipleStringMatcher {
     long q = 15485863;

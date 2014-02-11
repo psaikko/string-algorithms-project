@@ -1,5 +1,8 @@
 /**
  * Created by Paul on 1/24/14.
+ *
+ * A wrapper class for (pattern, index) matches.
+ * index denotes the text index where a match ends.
  */
 public class Occurrence {
     public int pattern;

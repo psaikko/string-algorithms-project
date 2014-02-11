@@ -5,9 +5,11 @@ import java.util.Random;
 
 /**
  * Created by Paul on 1/25/14.
+ *
+ * Some simple tools for creating and loading text data
  */
 public class StringTools {
-    private static Random rand = new Random(1337);
+    private static Random rand = new Random();
 
     public static char[] createText(int length, char[] alphabet) {
         char[] string = new char[length];
@@ -33,7 +35,7 @@ public class StringTools {
             throw new Exception("data file \"+filename\" too short for text of length "+length);
         // deal with strange characters
         for (int i = 0; i < length; i++)
-            text[i] %= 256;
+            text[i] %= MultipleStringMatcher.ALPHABET_MAX;
         return text;
     }
 

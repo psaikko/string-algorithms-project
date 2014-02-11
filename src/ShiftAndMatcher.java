@@ -3,6 +3,10 @@ import java.util.List;
 
 /**
  * Created by Paul on 1/30/14.
+ *
+ * Implements the Shift-And algorithm for multi-word bitstrings and multiple patterns.
+ * This implementation does not make note of which pattern is matched, only the index
+ * of the match.
  */
 public class ShiftAndMatcher implements MultipleStringMatcher {
     long[][] B;
@@ -20,7 +24,7 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
         }
 
         this.wc = (m + w - 1)/w; // ceil(m / w)
-        this.B = new long[256][wc];
+        this.B = new long[MultipleStringMatcher.ALPHABET_MAX][wc];
         this.pBegin = new long[wc];
         this.pEnd = new long[wc];
         this.alphabet = alphabet;
@@ -91,28 +95,5 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
         for (int i = 0; i < wc; i++)
             count += Long.bitCount(A[i] & B[i]);
         return count;
-    }
-
-    private void debugPreprocessing() {
-        System.out.print("pBegin "+toBitString(pBegin)+"\n");
-        System.out.print("pEnd   "+toBitString(pEnd)+"\n");
-
-        for (char c : alphabet) {
-            System.out.print(c);
-            System.out.print(" "+toBitString(B[c]));
-            System.out.println();
-        }
-        System.out.println();
-    }
-
-    private String toBitString(long[] ls) {
-        StringBuilder sb = new StringBuilder();
-        for (int j = 0; j < ls.length; j++) {
-            for (int i = 0; i < w; i++) {
-                sb.append(((ls[j] & (1L << i)) != 0) ? "1" : "0");
-            }
-            sb.append(" ");
-        }
-        return sb.toString();
     }
 }

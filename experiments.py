@@ -16,7 +16,8 @@ no_console.dwFlags |= subprocess.STARTF_USESHOWWINDOW
 
 def f(pattern_count, pattern_length):
     process = Popen(['java', '-jar', r'.\out\StringProcessingProject.jar',
-                     r'.\data\english.200MB', '100000', str(pattern_count), str(pattern_length), 'AhoCorasick'],
+                     r'.\data\english.200MB', '100000',
+                     str(pattern_count), str(pattern_length), 'AhoCorasick'],
                     stdout=PIPE, stderr=PIPE,
                     startupinfo=no_console)
     stdout, stderr = process.communicate()

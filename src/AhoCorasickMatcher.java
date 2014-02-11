@@ -1,5 +1,9 @@
 /**
  * Created by Paul on 1/24/14.
+ *
+ * Implementation of the Aho-Corasick algorithm for multiple exact string matching.
+ * We limit our alphabet size to MultipleStringMatcher.ALPHABET_MAX so an array is used
+ * for the child function.
  */
 import java.util.*;
 
@@ -59,7 +63,7 @@ public class AhoCorasickMatcher implements MultipleStringMatcher {
         queue.add(root);
         while (!queue.isEmpty()) {
             Node u = queue.removeFirst();
-            for (char c = 0; c < 256; c++) {
+            for (char c = 0; c < MultipleStringMatcher.ALPHABET_MAX; c++) {
                 Node v = u.children[c];
                     if (v != null) {
                     Node w = u.fail;
@@ -74,31 +78,9 @@ public class AhoCorasickMatcher implements MultipleStringMatcher {
         }
     }
 
-    private static int nodecount = 0;
-
     private class Node {
-        public int id = nodecount++;
         public Node fail = null;
-        public Node[] children = new Node[256];
+        public Node[] children = new Node[MultipleStringMatcher.ALPHABET_MAX];
         public Set<Integer> patterns = new HashSet();
-    }
-
-    private void printTrie(Node root) {
-        Deque<Node> queue = new LinkedList();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            Node v = queue.removeFirst();
-            System.out.print(String.format("id: %d, fail: %d, patterns: [ ", v.id, v.fail.id));
-            for (Integer i : v.patterns)
-                System.out.print(i + " ");
-            System.out.println("]");
-            for (char c = 0; c < 256; c++) {
-                Node child = v.children[c];
-                if (child != null) {
-                    System.out.println(String.format("  \"%s\", id: %d", c, child.id));
-                    queue.addLast(child);
-                }
-            }
-        }
     }
 }
