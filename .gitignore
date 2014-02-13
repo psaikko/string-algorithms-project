@@ -1,3 +1,5 @@
+*.iml
+src/META-INF
 ﻿*.class
 out/
 *.log
