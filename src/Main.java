@@ -10,9 +10,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try {
-        		if (args.length == 0) {
-        			  printHelp();
-        			  return;
+            if (args.length == 0) {
+                printHelp();
+                return;
             } else if (args.length == 1) {
                 // Run tests
                 if (!args[0].toLowerCase().equals("test"))
