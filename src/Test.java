@@ -4,7 +4,7 @@ import java.util.List;
  * Created by Paul on 2/11/14.
  *
  * Some rudimentary tests for the implemented algorithms.
- * Algorithms are compared to the naïve brute-force implementation in SimpleMatcher.java
+ * Algorithms are compared to the simple brute-force implementation in SimpleMatcher.java
  * since it is easy to see that it produces the correct result.
  */
 public class Test {
@@ -23,17 +23,17 @@ public class Test {
         }
     }
 
-    private static boolean manyPatternsTest() {
+    public static boolean manyPatternsTest() {
         return testAlgorithms("many patterns", 64,
                 100000, 100, 100);
     }
 
-    private static boolean smallAlphabetTest() {
+    public static boolean smallAlphabetTest() {
         return testAlgorithms("small alphabet", 3,
                 100000, 100, 100);
     }
 
-    private static boolean largeAlphabetTest() {
+    public static boolean largeAlphabetTest() {
         return testAlgorithms("large alphabet", MultipleStringMatcher.ALPHABET_MAX,
                 100000, 100, 100);
     }

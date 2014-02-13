@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             if (args.length == 1) {
+                // Run tests
                 if (!args[0].toLowerCase().equals("test"))
                     throw new Exception();
                 Test.runAll();
@@ -18,6 +19,9 @@ public class Main {
             } else if (args.length != 5) {
                 throw new Exception();
             }
+
+            // Parse program arguments
+
             final String dataSet = args[0];
 
             final int textLength;
@@ -49,6 +53,8 @@ public class Main {
 
             char[][] patterns = StringTools.getRandomSubstrings(patternCount, patternLength, text);
 
+            // create matcher, do preprocessing
+
             MultipleStringMatcher matcher;
             long startTime, endTime;
             switch(algorithm) {
@@ -71,14 +77,16 @@ public class Main {
                     throw new Exception("algorithm: not one of {AhoCorasick,KarpRabin,ShiftAnd}");
             }
 
-            System.out.println("Preprocessing: "+(endTime - startTime));
+            System.out.println("Preprocessing: "+(endTime - startTime)/1000000 + " ms");
+
+            // perform string matching
 
             List<Occurrence> occurrences;
             startTime = System.nanoTime();
             occurrences = matcher.findOccurrences(text);
             endTime = System.nanoTime();
 
-            System.out.println("Searching: "+(endTime - startTime));
+            System.out.println("Searching: "+(endTime - startTime)/1000000 + " ms");
             System.out.println("Matches: "+occurrences.size());
         } catch(Exception e) {
             System.out.println("Exception: "+e.getMessage());
