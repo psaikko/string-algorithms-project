@@ -6,3 +6,4 @@ out/
 src/*.class
 .idea
 data/
+*.py

@@ -10,7 +10,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try {
-            if (args.length == 1) {
+        		if (args.length == 0) {
+        			  printHelp();
+        			  return;
+            } else if (args.length == 1) {
                 // Run tests
                 if (!args[0].toLowerCase().equals("test"))
                     throw new Exception();
@@ -115,7 +118,7 @@ public class Main {
         System.out.println("Example parameters:");
         System.out.println("\tRandom64 1000000 32 8 ShiftAnd");
         System.out.println("\tRandom256 1000000 100 100 AhoCorasick");
-        System.out.println("\t.\\file.txt 10000 10 10 KarpRabin");
+        System.out.println("\tfile.txt 10000 10 10 KarpRabin");
         System.out.println("\ttest");
     }
 }
