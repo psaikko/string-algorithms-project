@@ -6,4 +6,4 @@ out/
 src/*.class
 .idea
 data/
-*.py
+__pycache__
