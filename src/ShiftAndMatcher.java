@@ -46,7 +46,6 @@ public class ShiftAndMatcher implements MultipleStringMatcher {
                 ++tmp;
             }
         }
-        //debugPreprocessing();
     }
 
     public List<Occurrence> findOccurrences(char[] text) {

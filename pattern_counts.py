@@ -6,7 +6,7 @@ algorithms = ['KarpRabin','AhoCorasick','ShiftAnd']
 names = ['Karp-Rabin','Aho-Corasick','Shift-And']
 pattern_counts = (np.arange(50)+1)*10
 
-reps = 5
+reps = 10
 for i in [0,1,2]:
     algo = algorithms[i];
     preprocess_times = []
@@ -32,4 +32,4 @@ for i in [0,1,2]:
     xlabel(r'$|P\,|$')
     ylabel('runtime (ms)')
     title(names[i])
-    savefig('img\\patterncount_'+names[i]+'.svg')
+    savefig('img\\patterncount_'+names[i]+'.pdf')

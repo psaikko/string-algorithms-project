@@ -7,7 +7,7 @@ labels = ["Karp-Rabin","Aho-Corasick"]
 colors = ['r','g']
 
 total = []
-reps = 4
+reps = 10
 
 min_patterns = 1
 max_patterns = 500
@@ -23,10 +23,8 @@ for (i, algo) in enumerate(algos):
             tmp += search
         times.append(tmp / reps)
     plot(pattern_counts, times, color=colors[i], label=labels[i])
-    ylabel('total runtime (ms)')
-    xlabel(r'$|P\,|$')
+    ylabel('time (ms)')
+    xlabel(r'$|\mathcal{P}\,|$')
 xlim(min_patterns, max_patterns)
-ylim(0)
-title('Karp-Rabin with many short patterns')
 legend(loc='upper left')
-savefig('img\\KRvAC.svg')
+savefig('img\\KRvAC.pdf')
