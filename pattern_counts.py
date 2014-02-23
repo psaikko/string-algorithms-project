@@ -31,5 +31,4 @@ for i in [0,1,2]:
     xlim(0,500)
     xlabel(r'$|P\,|$')
     ylabel('runtime (ms)')
-    title(names[i])
     savefig('img\\patterncount_'+names[i]+'.pdf')
