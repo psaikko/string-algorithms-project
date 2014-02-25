@@ -1,0 +1,4 @@
+pdflatex string_algo_poster.tex
+pdf2ps string_algo_poster.pdf
+poster -v -iA4 -mA3 -pA1 string_algo_poster.ps > poster_4xA3.ps
+ps2pdf poster_4xA3.ps
