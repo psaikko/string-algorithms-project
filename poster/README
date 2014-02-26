@@ -1,1 +1,7 @@
-requires poster utility, available from ubuntu repos etc..
+make_poster is a simple script that converts the A4-sized string_algo_poster.pdf 
+into A1-sized poster composed of 4 A3-sized pages
+
+make_poster uses cpdf utility, which is free for noncommercial use
+64-bit linux binary of cpdf included in this directory
+other binaries can be found at 
+	https://github.com/coherentgraphics/cpdf-binaries/archive/master.zip

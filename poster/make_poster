@@ -1,4 +1,8 @@
-pdflatex string_algo_poster.tex
-pdf2ps string_algo_poster.pdf
-./poster -v -iA4 -mA3 -pA1 string_algo_poster.ps > poster_4xA3.ps
-ps2pdf poster_4xA3.ps
+./cpdf -scale-to-fit "a1portrait" string_algo_poster.pdf -o A1.pdf 2>/dev/null
+./cpdf -crop "0mm 420.5mm 297mm 420.5mm" A1.pdf -o part1.pdf 2>/dev/null
+./cpdf -crop "297mm 420.5mm 297mm 420.5mm" A1.pdf -o part2.pdf 2>/dev/null
+./cpdf -crop "0mm 0mm 297mm 420.5mm" A1.pdf -o part3.pdf 2>/dev/null
+./cpdf -crop "297mm 0mm 297mm 420.5mm" A1.pdf -o part4.pdf 2>/dev/null
+./cpdf part1.pdf part2.pdf part3.pdf part4.pdf -o poster_4xA3.pdf
+
+rm part1.pdf part2.pdf part3.pdf part4.pdf A1.pdf
