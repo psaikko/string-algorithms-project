@@ -235,7 +235,7 @@ for (i = 0; i < n; i++):
   \begin{textblock}{60}(0,127)
     {\sffamily\normalsize{\color{sciorange}METHODOLOGY}}\vspace{1mm}\\
     \footnotesize
-      \textbf{Implementations.} The algorithms shown above were implemented with java version 1.7. The source code for the implementations is available on github at \url{https://github.com/psaikko/string-algorithms-project}.
+      \textbf{Implementations.} The algorithms introduced above were implemented with java version 1.7. The source code for the implementations is available on github at \url{https://github.com/psaikko/string-algorithms-project}.
       \vspace{1mm}\\
       \textbf{Experiments.} The experiment data was gathered using python scripts to automate running the algorithms. Every plotted data point is an average of 10 runs of the algorithm.
       \vspace{2mm}\\
